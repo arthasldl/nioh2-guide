@@ -1,0 +1,2063 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>仁王2 攻略帐 | Nioh 2 Complete Guide</title>
+<meta name="description" content="仁王2完整攻略查询站 - 流程攻略、BOSS打法、武器图鉴、技能数据、配装推荐一站式查询">
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
+<style>
+/* ===== CSS Variables ===== */
+:root {
+  --bg-primary: #121214;
+  --bg-secondary: #1a1a1e;
+  --bg-card: #202026;
+  --bg-card-hover: #28282f;
+  --bg-elevated: #25252c;
+  --accent-red: #b91c1c;
+  --accent-red-light: #dc2626;
+  --accent-red-dark: #7f1d1d;
+  --accent-gold: #c9a961;
+  --accent-gold-light: #d4b978;
+  --accent-gold-dark: #9a7d3e;
+  --text-primary: #e8e0d0;
+  --text-secondary: #a8a29e;
+  --text-muted: #6b6b6b;
+  --border: #2e2e35;
+  --border-light: #3a3a42;
+  --shadow: 0 4px 24px rgba(0,0,0,0.4);
+  --shadow-lg: 0 8px 40px rgba(0,0,0,0.6);
+  --radius: 8px;
+  --radius-lg: 12px;
+  --nav-height: 64px;
+  --max-width: 1280px;
+  --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== Reset & Base ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.7;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+ul, ol { list-style: none; }
+input { font-family: inherit; }
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--border-light); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-red-dark); }
+
+/* ===== Utility ===== */
+.container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
+.serif { font-family: 'Noto Serif SC', serif; }
+.text-gold { color: var(--accent-gold); }
+.text-red { color: var(--accent-red-light); }
+.section { padding: 80px 0; }
+.section-title {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.section-title::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 28px;
+  background: linear-gradient(180deg, var(--accent-red), var(--accent-gold));
+  border-radius: 2px;
+}
+.section-subtitle { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 40px; margin-left: 20px; }
+
+/* ===== Navigation ===== */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--nav-height);
+  background: rgba(18, 18, 20, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  z-index: 1000;
+  transition: var(--transition);
+}
+.nav.scrolled { background: rgba(18, 18, 20, 0.95); box-shadow: var(--shadow); }
+.nav-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Noto Serif SC', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  flex-shrink: 0;
+}
+.nav-logo-mark {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, var(--accent-red), var(--accent-red-dark));
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: var(--accent-gold);
+  font-weight: 900;
+  position: relative;
+}
+.nav-logo-mark::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border: 1px solid var(--accent-gold);
+  border-radius: 8px;
+  opacity: 0.4;
+}
+.nav-logo-text span { color: var(--accent-gold); }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+  justify-content: center;
+}
+.nav-link {
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  border-radius: 6px;
+  transition: var(--transition);
+  position: relative;
+  white-space: nowrap;
+}
+.nav-link:hover { color: var(--text-primary); background: var(--bg-card); }
+.nav-link.active {
+  color: var(--accent-gold);
+  background: rgba(201, 169, 97, 0.08);
+}
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 2px;
+  background: var(--accent-gold);
+  border-radius: 1px;
+}
+.nav-search {
+  position: relative;
+  flex-shrink: 0;
+  width: 220px;
+}
+.nav-search input {
+  width: 100%;
+  padding: 8px 12px 8px 36px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  outline: none;
+  transition: var(--transition);
+}
+.nav-search input:focus { border-color: var(--accent-gold); box-shadow: 0 0 0 3px rgba(201,169,97,0.1); }
+.nav-search input::placeholder { color: var(--text-muted); }
+.nav-search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+}
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px;
+}
+.nav-toggle span {
+  width: 22px;
+  height: 2px;
+  background: var(--text-primary);
+  border-radius: 1px;
+  transition: var(--transition);
+}
+
+/* ===== Mobile Menu ===== */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: var(--nav-height);
+  left: 0;
+  right: 0;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 24px;
+  z-index: 999;
+  flex-direction: column;
+  gap: 4px;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  padding: 12px 16px;
+  border-radius: 6px;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+.mobile-menu a:hover, .mobile-menu a.active { background: var(--bg-card); color: var(--accent-gold); }
+
+/* ===== Hero ===== */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-top: 0;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://aka.doubaocdn.com/s/mMD6pHKGzi');
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.55) saturate(1.1);
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(18,18,20,0.3) 0%, rgba(18,18,20,0.1) 40%, rgba(18,18,20,0.8) 80%, var(--bg-primary) 100%),
+    linear-gradient(90deg, rgba(18,18,20,0.6) 0%, transparent 50%, rgba(18,18,20,0.4) 100%);
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 800px;
+  padding: 0 24px;
+  animation: heroFadeIn 1.2s ease-out;
+}
+@keyframes heroFadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-eyebrow {
+  display: inline-block;
+  padding: 6px 20px;
+  border: 1px solid var(--accent-gold);
+  border-radius: 20px;
+  color: var(--accent-gold);
+  font-size: 0.8rem;
+  letter-spacing: 4px;
+  margin-bottom: 24px;
+  background: rgba(201,169,97,0.05);
+}
+.hero-title {
+  font-family: 'Noto Serif SC', serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 16px;
+  letter-spacing: 4px;
+  text-shadow: 0 4px 30px rgba(0,0,0,0.8);
+}
+.hero-title .accent {
+  background: linear-gradient(135deg, var(--accent-gold-light), var(--accent-gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-subtitle {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: var(--text-secondary);
+  margin-bottom: 40px;
+  letter-spacing: 2px;
+  line-height: 1.8;
+}
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: var(--transition);
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent-red), var(--accent-red-dark));
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(185,28,28,0.3);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(185,28,28,0.5); }
+.btn-outline {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+  background: rgba(201,169,97,0.05);
+}
+.btn-outline:hover { background: rgba(201,169,97,0.15); transform: translateY(-2px); }
+.hero-scroll {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  animation: scrollBounce 2s infinite;
+}
+@keyframes scrollBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+.hero-scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(180deg, var(--accent-gold), transparent);
+}
+
+/* ===== Stats Bar ===== */
+.stats-bar {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 32px 0;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  text-align: center;
+}
+.stat-item .stat-num {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+  line-height: 1;
+}
+.stat-item .stat-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  letter-spacing: 1px;
+}
+
+/* ===== Category Cards ===== */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.category-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  transition: var(--transition);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.category-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-red), var(--accent-gold));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+.category-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-light);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+.category-card:hover::before { transform: scaleX(1); }
+.category-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(185,28,28,0.15), rgba(201,169,97,0.1));
+  border: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  color: var(--accent-gold);
+}
+.category-card h3 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.category-card p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+.category-card .category-count {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 0.75rem;
+  color: var(--accent-gold);
+  background: rgba(201,169,97,0.08);
+  padding: 3px 10px;
+  border-radius: 10px;
+}
+
+/* ===== Featured Guides ===== */
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.guide-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: var(--transition);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+.guide-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--border-light);
+}
+.guide-card-thumb {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+  background: var(--bg-secondary);
+}
+.guide-card-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.guide-card:hover .guide-card-thumb img { transform: scale(1.08); }
+.guide-card-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 4px 12px;
+  background: rgba(185,28,28,0.9);
+  color: #fff;
+  font-size: 0.75rem;
+  border-radius: 4px;
+  letter-spacing: 1px;
+  backdrop-filter: blur(4px);
+}
+.guide-card-body {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.guide-card-title {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.guide-card-excerpt {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.guide-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+.guide-card-meta .author { color: var(--accent-gold); }
+
+/* ===== Game Intro Section ===== */
+.intro-section {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.intro-image {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+.intro-image img { width: 100%; height: 400px; object-fit: cover; }
+.intro-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--accent-gold);
+  border-radius: var(--radius-lg);
+  opacity: 0.3;
+  pointer-events: none;
+}
+.intro-content h2 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+.intro-content p {
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+  line-height: 1.9;
+  font-size: 0.95rem;
+}
+.intro-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 24px;
+}
+.intro-feature {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+}
+.intro-feature-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--accent-gold);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ===== Page Header (sub pages) ===== */
+.page-header {
+  margin-top: var(--nav-height);
+  padding: 60px 0 40px;
+  background:
+    linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+.page-header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(185,28,28,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.page-header h1 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  position: relative;
+}
+.page-header p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  position: relative;
+}
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  position: relative;
+}
+.breadcrumb a { color: var(--text-secondary); transition: color 0.2s; }
+.breadcrumb a:hover { color: var(--accent-gold); }
+.breadcrumb-sep { color: var(--border-light); }
+
+/* ===== Filter Bar ===== */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+.filter-chip {
+  padding: 8px 18px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--transition);
+  background: var(--bg-card);
+}
+.filter-chip:hover { border-color: var(--border-light); color: var(--text-primary); }
+.filter-chip.active {
+  background: var(--accent-red);
+  border-color: var(--accent-red);
+  color: #fff;
+}
+
+/* ===== Guide Detail ===== */
+.detail-layout {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 40px;
+  padding: 40px 0 80px;
+}
+.detail-content {
+  min-width: 0;
+}
+.detail-article {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+}
+.detail-article h1 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+.detail-meta {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  flex-wrap: wrap;
+}
+.detail-meta-item { display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.detail-meta-item .label { color: var(--accent-gold); }
+.detail-body { font-size: 0.95rem; line-height: 2; color: var(--text-primary); }
+.detail-body p { margin-bottom: 16px; }
+.detail-body h2 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 32px 0 16px;
+  padding-left: 14px;
+  border-left: 3px solid var(--accent-red);
+  color: var(--text-primary);
+}
+.detail-body h3 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 24px 0 12px;
+  color: var(--accent-gold);
+}
+.detail-body img {
+  border-radius: var(--radius);
+  margin: 20px 0;
+  border: 1px solid var(--border);
+}
+.detail-body .image-caption {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: -12px;
+  margin-bottom: 24px;
+}
+.detail-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 0.88rem;
+}
+.detail-body th, .detail-body td {
+  padding: 10px 14px;
+  text-align: left;
+  border: 1px solid var(--border);
+}
+.detail-body th {
+  background: var(--bg-secondary);
+  color: var(--accent-gold);
+  font-weight: 600;
+}
+.detail-body tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+.detail-body ul, .detail-body ol {
+  padding-left: 24px;
+  margin-bottom: 16px;
+}
+.detail-body li { margin-bottom: 8px; }
+.detail-body blockquote {
+  border-left: 3px solid var(--accent-gold);
+  padding: 12px 20px;
+  background: rgba(201,169,97,0.05);
+  margin: 20px 0;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+.detail-source {
+  margin-top: 32px;
+  padding: 16px 20px;
+  background: var(--bg-secondary);
+  border-radius: var(--radius);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+.detail-source a { color: var(--accent-gold); text-decoration: underline; }
+
+/* ===== Sidebar TOC ===== */
+.detail-sidebar { position: sticky; top: calc(var(--nav-height) + 24px); align-self: start; }
+.toc-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+}
+.toc-title {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+  color: var(--accent-gold);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.toc-list { display: flex; flex-direction: column; gap: 2px; }
+.toc-item {
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: var(--transition);
+  border-left: 2px solid transparent;
+}
+.toc-item:hover { color: var(--text-primary); background: var(--bg-secondary); }
+.toc-item.active {
+  color: var(--accent-gold);
+  background: rgba(201,169,97,0.06);
+  border-left-color: var(--accent-gold);
+}
+.toc-item.sub { padding-left: 28px; font-size: 0.8rem; }
+
+/* ===== Related Guides ===== */
+.related-section { margin-top: 40px; }
+.related-title {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+.related-card {
+  display: flex;
+  gap: 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.related-card:hover { border-color: var(--border-light); background: var(--bg-card-hover); }
+.related-card-thumb {
+  width: 100px;
+  height: 70px;
+  border-radius: 6px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.related-card-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.related-card-info h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.related-card-info span { font-size: 0.75rem; color: var(--text-muted); }
+
+/* ===== Weapon Grid ===== */
+.weapon-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.weapon-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  text-align: center;
+  transition: var(--transition);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.weapon-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-gold);
+  box-shadow: 0 8px 30px rgba(201,169,97,0.15);
+}
+.weapon-card-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 16px;
+  background: linear-gradient(135deg, var(--bg-secondary), var(--bg-elevated));
+  border: 1px solid var(--border-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  color: var(--accent-gold);
+}
+.weapon-card h3 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.weapon-card p {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+.weapon-card .difficulty {
+  display: inline-flex;
+  gap: 3px;
+}
+.weapon-card .diff-star { color: var(--accent-red); font-size: 0.75rem; }
+.weapon-card .diff-star.empty { color: var(--border); }
+.weapon-card .coming-soon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 0.68rem;
+  padding: 2px 8px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text-muted);
+}
+
+/* ===== Boss Grid ===== */
+.boss-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.boss-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: var(--transition);
+  cursor: pointer;
+}
+.boss-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.boss-card-image {
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+}
+.boss-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.boss-card:hover .boss-card-image img { transform: scale(1.08); }
+.boss-card-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(18,18,20,0.9) 100%);
+}
+.boss-card-name {
+  position: absolute;
+  bottom: 12px;
+  left: 16px;
+  z-index: 2;
+  font-family: 'Noto Serif SC', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+}
+.boss-card-body { padding: 18px 20px; }
+.boss-card-tags {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+.boss-tag {
+  font-size: 0.72rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: rgba(185,28,28,0.12);
+  color: var(--accent-red-light);
+  border: 1px solid rgba(185,28,28,0.2);
+}
+.boss-tag.weak { background: rgba(201,169,97,0.1); color: var(--accent-gold); border-color: rgba(201,169,97,0.2); }
+.boss-card-desc {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ===== Build Cards ===== */
+.build-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.build-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: var(--transition);
+  cursor: pointer;
+}
+.build-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--border-light); }
+.build-card-header {
+  padding: 24px;
+  background: linear-gradient(135deg, var(--bg-secondary), var(--bg-card));
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.build-card-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--accent-red), var(--accent-red-dark));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+.build-card-header h3 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.build-card-header p { font-size: 0.8rem; color: var(--text-muted); }
+.build-card-body { padding: 20px 24px; }
+.build-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.build-stat {
+  text-align: center;
+  padding: 10px;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+}
+.build-stat-val { font-size: 1.1rem; font-weight: 700; color: var(--accent-gold); }
+.build-stat-label { font-size: 0.7rem; color: var(--text-muted); margin-top: 2px; }
+.build-card-desc { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.7; }
+
+/* ===== About Page ===== */
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 0 80px;
+}
+.about-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  margin-bottom: 24px;
+}
+.about-card h2 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--accent-gold);
+}
+.about-card p { color: var(--text-secondary); line-height: 2; margin-bottom: 12px; font-size: 0.95rem; }
+.about-card ul { padding-left: 20px; }
+.about-card li { color: var(--text-secondary); margin-bottom: 8px; line-height: 1.8; }
+
+/* ===== Footer ===== */
+.footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border);
+  padding: 48px 0 24px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 32px;
+}
+.footer-brand p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin-top: 12px;
+  max-width: 300px;
+}
+.footer-col h4 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--accent-gold);
+}
+.footer-col a {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  padding: 5px 0;
+  transition: color 0.2s;
+}
+.footer-col a:hover { color: var(--accent-gold); }
+.footer-bottom {
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.footer-bottom .disclaimer { max-width: 600px; line-height: 1.6; }
+
+/* ===== Back to Top ===== */
+.back-to-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 44px;
+  height: 44px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-gold);
+  cursor: pointer;
+  transition: var(--transition);
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+}
+.back-to-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+.back-to-top:hover { background: var(--accent-red); border-color: var(--accent-red); color: #fff; }
+
+/* ===== Search Results Dropdown ===== */
+.search-results {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  max-height: 400px;
+  overflow-y: auto;
+  z-index: 1001;
+  display: none;
+}
+.search-results.open { display: block; }
+.search-result-item {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: background 0.2s;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.search-result-item:last-child { border-bottom: none; }
+.search-result-item:hover { background: var(--bg-secondary); }
+.search-result-thumb {
+  width: 48px;
+  height: 36px;
+  border-radius: 4px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.search-result-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.search-result-info { flex: 1; min-width: 0; }
+.search-result-title {
+  font-size: 0.85rem;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.search-result-cat { font-size: 0.72rem; color: var(--text-muted); }
+.search-empty { padding: 24px; text-align: center; color: var(--text-muted); font-size: 0.85rem; }
+
+/* ===== Empty State ===== */
+.empty-state {
+  text-align: center;
+  padding: 80px 20px;
+  color: var(--text-muted);
+}
+.empty-state-icon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+  opacity: 0.4;
+}
+.empty-state h3 { font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 8px; }
+.empty-state p { font-size: 0.88rem; }
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+  .category-grid, .guide-grid, .boss-grid { grid-template-columns: repeat(2, 1fr); }
+  .weapon-grid { grid-template-columns: repeat(3, 1fr); }
+  .detail-layout { grid-template-columns: 1fr; }
+  .detail-sidebar { display: none; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .intro-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+@media (max-width: 768px) {
+  .nav-links, .nav-search { display: none; }
+  .nav-toggle { display: flex; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .category-grid, .guide-grid, .boss-grid, .build-grid, .related-grid { grid-template-columns: 1fr; }
+  .weapon-grid { grid-template-columns: repeat(2, 1fr); }
+  .section { padding: 48px 0; }
+  .section-title { font-size: 1.5rem; }
+  .detail-article { padding: 24px; }
+  .detail-article h1 { font-size: 1.4rem; }
+  .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+  .hero-actions .btn { padding: 12px 24px; font-size: 0.88rem; }
+  .intro-features { grid-template-columns: 1fr; }
+  .page-header h1 { font-size: 1.6rem; }
+}
+@media (max-width: 480px) {
+  .weapon-grid { grid-template-columns: 1fr 1fr; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== Navigation ===== -->
+<nav class="nav" id="navbar">
+  <div class="nav-inner">
+    <a href="#/" class="nav-logo" data-route="/">
+      <div class="nav-logo-mark">仁</div>
+      <div class="nav-logo-text">仁王<span>2</span> 攻略帐</div>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#/" class="nav-link" data-route="/">首页</a>
+      <a href="#/guides" class="nav-link" data-route="/guides">攻略中心</a>
+      <a href="#/weapons" class="nav-link" data-route="/weapons">武器图鉴</a>
+      <a href="#/bosses" class="nav-link" data-route="/bosses">BOSS图鉴</a>
+      <a href="#/builds" class="nav-link" data-route="/builds">配装推荐</a>
+      <a href="#/about" class="nav-link" data-route="/about">关于</a>
+    </div>
+    <div class="nav-search">
+      <svg class="nav-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" id="searchInput" placeholder="搜索攻略、武器、BOSS..." autocomplete="off">
+      <div class="search-results" id="searchResults"></div>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="菜单">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#/" data-route="/">首页</a>
+  <a href="#/guides" data-route="/guides">攻略中心</a>
+  <a href="#/weapons" data-route="/weapons">武器图鉴</a>
+  <a href="#/bosses" data-route="/bosses">BOSS图鉴</a>
+  <a href="#/builds" data-route="/builds">配装推荐</a>
+  <a href="#/about" data-route="/about">关于</a>
+</div>
+
+<!-- ===== Main Content (Router Outlet) ===== -->
+<main id="app"></main>
+
+<!-- ===== Back to Top ===== -->
+<button class="back-to-top" id="backToTop" aria-label="回到顶部">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 15-6-6-6 6"/></svg>
+</button>
+
+<!-- ===== Footer ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo">
+          <div class="nav-logo-mark">仁</div>
+          <div class="nav-logo-text">仁王<span>2</span> 攻略帐</div>
+        </div>
+        <p>专注于《仁王2》的完整攻略查询站点，涵盖流程攻略、BOSS打法、武器图鉴、技能数据与配装推荐，助力每一位武士通关深层。</p>
+      </div>
+      <div class="footer-col">
+        <h4>攻略分类</h4>
+        <a href="#/guides">全部攻略</a>
+        <a href="#/guides?cat=walkthrough">流程攻略</a>
+        <a href="#/guides?cat=boss">BOSS打法</a>
+        <a href="#/guides?cat=data">数据资料</a>
+      </div>
+      <div class="footer-col">
+        <h4>游戏资料</h4>
+        <a href="#/weapons">武器图鉴</a>
+        <a href="#/bosses">BOSS图鉴</a>
+        <a href="#/builds">配装推荐</a>
+        <a href="#/about">关于本站</a>
+      </div>
+      <div class="footer-col">
+        <h4>快速链接</h4>
+        <a href="#/guide/skill-drop-table">武技掉落表</a>
+        <a href="#/guides">新手入门</a>
+        <a href="#/builds">毕业配装</a>
+        <a href="#/about">联系方式</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 仁王2攻略帐 · 个人学习用途</span>
+      <span class="disclaimer">本站内容仅供个人学习参考，游戏《仁王2》(Nioh 2) 版权归光荣特库摩 (Koei Tecmo) / Team Ninja 所有。</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ===== Data =====
+const CATEGORIES = [
+  { id: 'walkthrough', name: '流程攻略', icon: 'route', desc: '全主线支线图文流程，含木灵、温泉、隐藏道具收集路线', count: '更新中' },
+  { id: 'boss', name: 'BOSS打法', icon: 'skull', desc: '全BOSS招式解析、弱点属性、无伤打法与推荐配装', count: '更新中' },
+  { id: 'weapon', name: '武器图鉴', icon: 'sword', desc: '11种武器武技详解、武器选择推荐与上手难度评估', count: '11类' },
+  { id: 'data', name: '数据资料', icon: 'book', desc: '技能效果、词条重炼、守护灵、魂核等完整数据查询', count: '更新中' },
+  { id: 'build', name: '配装推荐', icon: 'shield', desc: '从开荒到毕业的完整配装方案，含恩宠套与深层配置', count: '更新中' },
+  { id: 'beginner', name: '新手入门', icon: 'spark', desc: '新手指南、系统机制解析、开荒思路与实用小建议', count: '更新中' }
+];
+
+const WEAPONS = [
+  { name: '太刀', icon: '刀', desc: '攻防均衡的入门首选', difficulty: 2 },
+  { name: '双刀', icon: '双刀', desc: '高速连段，身法灵活', difficulty: 3 },
+  { name: '长枪', icon: '枪', desc: '攻击距离远，压制力强', difficulty: 3 },
+  { name: '斧', icon: '斧', desc: '高伤害重武器，攻速慢', difficulty: 4 },
+  { name: '旋棍', icon: '棍', desc: '近距离高速打击', difficulty: 4 },
+  { name: '锁镰', icon: '镰', desc: '远近兼顾，机制独特', difficulty: 5 },
+  { name: '大太刀', icon: '大刀', desc: '大范围高伤害重武器', difficulty: 3 },
+  { name: '手甲', icon: '甲', desc: '拳脚近战，连击流畅', difficulty: 4 },
+  { name: '薙刀镰', icon: '薙', desc: '三种构形切换，泛用性强', difficulty: 4 },
+  { name: '机关棍', icon: '机', desc: '多段变形，技巧要求高', difficulty: 5 },
+  { name: '手斧', icon: '手斧', desc: '投掷与近战结合', difficulty: 3 }
+];
+
+const BOSSES = [
+  { name: '酒吞童子', image: 'https://aka.doubaocdn.com/s/l5Lp25U7Ee', tags: ['妖怪', '力型'], weak: ['雷', '水'], desc: '大岳丸麾下的强力妖怪，以巨大铁棒进行大范围攻击，常处于常暗区域。' },
+  { name: '牛鬼', image: 'https://aka.doubaocdn.com/s/6GNzjt6gf2', tags: ['妖怪', '速型'], weak: ['雷'], desc: '形似牛的巨大妖怪，生性凶残，擅长突进与毒液攻击。' },
+  { name: '烟炎之怪', image: 'https://aka.doubaocdn.com/s/nBuxkS2qDD', tags: ['妖怪', '幻型'], weak: ['水'], desc: '由火焰与怨念凝聚而成的妖怪，全身燃烧烈焰，攻击附带燃烧效果。' },
+  { name: '独脚多多良', image: 'https://aka.doubaocdn.com/s/PP8GwAzfub', tags: ['妖怪', '力型'], weak: ['雷', '风'], desc: '劳苦铁匠所化的妖怪，单脚跳跃移动，背负巨大铁砧，攻击力极高。' },
+  { name: '马头鬼', image: 'https://aka.doubaocdn.com/s/jR1gLWhGdo', tags: ['妖怪', '速型'], weak: ['雷'], desc: '马首人身的经典妖怪，以镰刀进行快速斩击，突进能力强。' },
+  { name: '祟枭', image: 'https://aka.doubaocdn.com/s/eELCHVLx4q', tags: ['妖怪', '幻型'], weak: ['火'], desc: '巨枭形态的妖怪，能在空中发动俯冲攻击，并召唤小妖怪助战。' }
+];
+
+const BUILDS = [
+  { name: '太刀物理流', icon: '刀', subtitle: '开荒到毕业通用', offense: 'A', defense: 'B', difficulty: '低', desc: '以太刀为核心的物理输出配装，依靠高面板与武技连段打出稳定伤害。推荐恩宠：天照大神 / 月读。' },
+  { name: '双刀迅反流', icon: '双刀', subtitle: '高操作高回报', offense: 'S', defense: 'C', difficulty: '高', desc: '利用双刀迅反机制完美闪避后反击，机动性极强但对操作要求高。推荐恩宠：经津主 / 建御名方。' },
+  { name: '忍术长枪流', icon: '枪', subtitle: '深层30通关配置', offense: 'A', defense: 'A', difficulty: '中', desc: '结合忍术控制与长枪压制的均衡配装，适合深层高难内容。推荐恩宠：大山津见 / 月读。' },
+  { name: '阴阳术法伤流', icon: '咒', subtitle: '元素爆发输出', offense: 'S', defense: 'C', difficulty: '中', desc: '以阴阳术附加元素属性，配合武器武技触发混沌状态造成巨额伤害。推荐恩宠：月读 / 思兼神。' }
+];
+
+const GUIDES = [
+  {
+    id: 'skill-drop-table',
+    title: '武技与锻造书掉落表分享',
+    category: 'data',
+    categoryName: '数据资料',
+    author: 'Panoramix',
+    date: '2020-08-11',
+    readTime: '5分钟',
+    excerpt: '《仁王2》中武技与锻造书的掉落都是很重要的东西，那么锻造书都在什么任务中掉落呢？本文为大家带来完整的武技与锻造书掉落表。',
+    image: 'https://aka.doubaocdn.com/s/HrSYa2Mnbz',
+    content: `
+<p>《仁王2》中武技与锻造书的掉落都是很重要的东西，那么锻造书都在什么任务中掉落呢？现在为大家带来"Panoramix"的《仁王2》武技与锻造书掉落表分享，希望对大家有所帮助。</p>
+<h2>掉落表总览</h2>
+<p>下表汇总了游戏中全部武技书与锻造书的掉落来源，包括掉落任务、掉落敌人以及获取条件。玩家可以根据需要刷取对应的任务来获得目标武技或锻造书。</p>
+<img src="https://aka.doubaocdn.com/s/HrSYa2Mnbz" alt="仁王2武技与锻造书掉落表" style="width:100%;">
+<p class="image-caption">▲ 仁王2 武技与锻造书完整掉落表（点击可查看大图）</p>
+<h2>使用说明</h2>
+<ul>
+<li><strong>武技书</strong>：使用后可解锁对应武器的武技，部分武技需要完成特定任务或击败特定敌人掉落。</li>
+<li><strong>锻造书</strong>：使用后可在锻造屋解锁对应武器/防具的锻造配方。</li>
+<li><strong>掉落机制</strong>：部分掉落品需要在特定难度（如强者之道、修罗之道）下才会掉落。</li>
+<li><strong>效率建议</strong>：推荐搭配"掉落率提升"词条与开运符，可显著提高刷取效率。</li>
+</ul>
+<h2>刷取小贴士</h2>
+<ol>
+<li>优先完成主线任务解锁更高难度，高难度下掉落率更高。</li>
+<li>利用"血刀冢"系统可以重复挑战强力敌人，有概率掉落稀有武技书。</li>
+<li>部分锻造书可通过"常暗之间"的深层模式获得。</li>
+<li>联机模式下队友击杀的敌人掉落品也可以拾取。</li>
+</ol>
+<blockquote>注意：掉落表内容基于游戏1.27版本，后续DLC新增内容请以游戏内实际为准。</blockquote>
+`,
+    source: 'https://wap.gamersky.com/gl/Content-1311962.html',
+    sourceName: '游民星空'
+  },
+  {
+    id: 'beginner-guide',
+    title: '新手开荒实用小建议',
+    category: 'beginner',
+    categoryName: '新手入门',
+    author: '攻略组',
+    date: '2026-09-01',
+    readTime: '8分钟',
+    excerpt: '从零开始的仁王2新手指南，涵盖核心机制解析、武器选择、属性加点与开荒思路，帮助新手少走弯路。',
+    image: 'https://aka.doubaocdn.com/s/vTUtcZpvUV',
+    comingSoon: true
+  },
+  {
+    id: 'weapon-select',
+    title: '武器性能、上手难度与选择讲解',
+    category: 'weapon',
+    categoryName: '武器图鉴',
+    author: '攻略组',
+    date: '2026-09-01',
+    readTime: '10分钟',
+    excerpt: '仁王2共11种武器，各有特色。本文从攻击速度、伤害面板、上手难度等维度全面对比，帮你选择最适合的武器。',
+    image: 'https://aka.doubaocdn.com/s/oRtyRLb3Vi',
+    comingSoon: true
+  },
+  {
+    id: 'dual-swords-guide',
+    title: '新手入门双刀使用心得',
+    category: 'weapon',
+    categoryName: '武器图鉴',
+    author: '攻略组',
+    date: '2026-09-01',
+    readTime: '6分钟',
+    excerpt: '双刀以高速连段和灵活身法著称，本文分享双刀的核心武技、连招思路与开荒体验。',
+    image: 'https://aka.doubaocdn.com/s/s5w4MT5Jcu',
+    comingSoon: true
+  },
+  {
+    id: 'onmyo-build',
+    title: '前中期阴阳流实用配装分享',
+    category: 'build',
+    categoryName: '配装推荐',
+    author: '攻略组',
+    date: '2026-09-01',
+    readTime: '7分钟',
+    excerpt: '阴阳术流在前期就能提供强大的元素输出与控制能力，本文分享一套前中期即可成型的阴阳流配装。',
+    image: 'https://aka.doubaocdn.com/s/UpVzY12Vqj',
+    comingSoon: true
+  },
+  {
+    id: 'ngplus-guide',
+    title: '2-5周目通关思路与玩法心得',
+    category: 'walkthrough',
+    categoryName: '流程攻略',
+    author: '攻略组',
+    date: '2026-09-01',
+    readTime: '12分钟',
+    excerpt: '通关一周目只是开始，2-5周目新增了恩宠系统、难行石等机制。本文讲解各周目的核心变化与通关思路。',
+    image: 'https://aka.doubaocdn.com/s/eELCHVLx4q',
+    comingSoon: true
+  }
+];
+
+// ===== Icons (SVG) =====
+const ICONS = {
+  route: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="19" r="3"/><circle cx="18" cy="5" r="3"/><path d="M6 16V8a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v0"/></svg>',
+  skull: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="10" r="8"/><path d="M8 14v4M16 14v4M12 18v2"/><circle cx="9" cy="10" r="1.5" fill="currentColor"/><circle cx="15" cy="10" r="1.5" fill="currentColor"/></svg>',
+  sword: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 17.5 3 6V3h3l11.5 11.5M13 19l6-6M16 16l4 4M19 21l2-2"/></svg>',
+  book: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>',
+  shield: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
+  spark: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6M12 16v6M2 12h6M16 12h6M4.9 4.9l4.2 4.2M14.9 14.9l4.2 4.2M4.9 19.1l4.2-4.2M14.9 9.1l4.2-4.2"/></svg>',
+  search: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>'
+};
+
+// ===== Router =====
+const app = document.getElementById('app');
+
+function getRoute() {
+  const hash = window.location.hash.slice(1) || '/';
+  const [path, queryStr] = hash.split('?');
+  const params = {};
+  if (queryStr) {
+    queryStr.split('&').forEach(p => {
+      const [k, v] = p.split('=');
+      params[k] = decodeURIComponent(v || '');
+    });
+  }
+  return { path, params };
+}
+
+function navigate(path) {
+  window.location.hash = path;
+}
+
+function render() {
+  const { path, params } = getRoute();
+  window.scrollTo(0, 0);
+  updateNavActive(path);
+  closeMobileMenu();
+
+  if (path === '/' || path === '') renderHome();
+  else if (path === '/guides') renderGuides(params);
+  else if (path.startsWith('/guide/')) renderGuideDetail(path.split('/guide/')[1]);
+  else if (path === '/weapons') renderWeapons();
+  else if (path === '/bosses') renderBosses();
+  else if (path === '/builds') renderBuilds();
+  else if (path === '/about') renderAbout();
+  else renderNotFound();
+}
+
+function updateNavActive(path) {
+  document.querySelectorAll('.nav-link, .mobile-menu a').forEach(link => {
+    const route = link.getAttribute('data-route');
+    link.classList.toggle('active',
+      route === path ||
+      (route === '/guides' && path.startsWith('/guide')) ||
+      (route !== '/' && path.startsWith(route))
+    );
+  });
+}
+
+// ===== Views =====
+
+function renderHome() {
+  app.innerHTML = `
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="hero-eyebrow">NIOH 2 · COMPLETE GUIDE</div>
+        <h1 class="hero-title">斩破黑暗<br><span class="accent">执掌常暗</span></h1>
+        <p class="hero-subtitle">仁王2 完整攻略查询站 · 流程 / BOSS / 武器 / 配装 一站式检索</p>
+        <div class="hero-actions">
+          <a href="#/guides" class="btn btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            浏览全部攻略
+          </a>
+          <a href="#/guide/skill-drop-table" class="btn btn-outline">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+            武技掉落表
+          </a>
+        </div>
+      </div>
+      <div class="hero-scroll">
+        <span>SCROLL</span>
+        <div class="hero-scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats-bar">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item"><div class="stat-num">11</div><div class="stat-label">武器种类</div></div>
+          <div class="stat-item"><div class="stat-num">40+</div><div class="stat-label">BOSS / 妖怪</div></div>
+          <div class="stat-item"><div class="stat-num">3</div><div class="stat-label">DLC 扩展</div></div>
+          <div class="stat-item"><div class="stat-num">∞</div><div class="stat-label">深层挑战</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">攻略分类</h2>
+        <p class="section-subtitle">按类型快速定位你需要的攻略内容</p>
+        <div class="category-grid">
+          ${CATEGORIES.map(cat => `
+            <div class="category-card" onclick="navigate('#/guides?cat=${cat.id}')">
+              <div class="category-icon">${ICONS[cat.icon] || ICONS.book}</div>
+              <h3>${cat.name}</h3>
+              <p>${cat.desc}</p>
+              <span class="category-count">${cat.count}</span>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    </section>
+
+    <!-- Game Intro -->
+    <section class="section intro-section">
+      <div class="container">
+        <div class="intro-grid">
+          <div class="intro-image">
+            <img src="https://aka.doubaocdn.com/s/QVcBoQfm9F" alt="仁王2 完全版">
+          </div>
+          <div class="intro-content">
+            <h2 class="serif">关于《仁王2》</h2>
+            <p>《仁王2》(Nioh 2) 是由 Team Ninja 开发、光荣特库摩发行的暗黑战国动作角色扮演游戏，于2020年3月发售，2021年推出包含全部DLC的《完全版》。</p>
+            <p>游戏以日本战国时代为背景，玩家扮演半妖"秀千代"，在人类与妖怪并存的世界中展开冒险。游戏延续了初代高难度、高回报的核心玩法，新增了妖怪化、守护灵切换、魂核等系统。</p>
+            <div class="intro-features">
+              <div class="intro-feature"><span class="intro-feature-dot"></span>11种武器自由切换</div>
+              <div class="intro-feature"><span class="intro-feature-dot"></span>妖怪化战斗系统</div>
+              <div class="intro-feature"><span class="intro-feature-dot"></span>守护灵与魂核收集</div>
+              <div class="intro-feature"><span class="intro-feature-dot"></span>忍术与阴阳术搭配</div>
+              <div class="intro-feature"><span class="intro-feature-dot"></span>深层无尽挑战</div>
+              <div class="intro-feature"><span class="intro-feature-dot"></span>三人联机共斗</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Guides -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">精选攻略</h2>
+        <p class="section-subtitle">热门与最新更新的攻略内容</p>
+        <div class="guide-grid">
+          ${GUIDES.slice(0, 3).map(g => guideCardHTML(g)).join('')}
+        </div>
+        <div style="text-align:center; margin-top:32px;">
+          <a href="#/guides" class="btn btn-outline">查看全部攻略 →</a>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function guideCardHTML(g) {
+  return `
+    <div class="guide-card" onclick="navigate('#/guide/${g.id}')">
+      <div class="guide-card-thumb">
+        <img src="${g.image}" alt="${g.title}" loading="lazy">
+        <span class="guide-card-tag">${g.categoryName}</span>
+      </div>
+      <div class="guide-card-body">
+        <h3 class="guide-card-title">${g.title}${g.comingSoon ? ' <span style="font-size:0.7rem;color:var(--text-muted);font-weight:400;">(即将上线)</span>' : ''}</h3>
+        <p class="guide-card-excerpt">${g.excerpt}</p>
+        <div class="guide-card-meta">
+          <span class="author">${g.author}</span>
+          <span>${g.date} · ${g.readTime}</span>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderGuides(params) {
+  const activeCat = params.cat || 'all';
+  const filtered = activeCat === 'all' ? GUIDES : GUIDES.filter(g => g.category === activeCat);
+
+  app.innerHTML = `
+    <div class="page-header">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="#/">首页</a>
+          <span class="breadcrumb-sep">/</span>
+          <span>攻略中心</span>
+        </div>
+        <h1>攻略中心</h1>
+        <p>共 ${GUIDES.length} 篇攻略 · 持续更新中</p>
+      </div>
+    </div>
+    <div class="section" style="padding-top:40px;">
+      <div class="container">
+        <div class="filter-bar">
+          <button class="filter-chip ${activeCat === 'all' ? 'active' : ''}" onclick="navigate('#/guides')">全部</button>
+          ${CATEGORIES.map(c => `
+            <button class="filter-chip ${activeCat === c.id ? 'active' : ''}" onclick="navigate('#/guides?cat=${c.id}')">${c.name}</button>
+          `).join('')}
+        </div>
+        ${filtered.length > 0 ? `
+          <div class="guide-grid">
+            ${filtered.map(g => guideCardHTML(g)).join('')}
+          </div>
+        ` : `
+          <div class="empty-state">
+            <div class="empty-state-icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            </div>
+            <h3>该分类暂无攻略</h3>
+            <p>内容正在整理中，敬请期待</p>
+          </div>
+        `}
+      </div>
+    </div>
+  `;
+}
+
+function renderGuideDetail(id) {
+  const guide = GUIDES.find(g => g.id === id);
+  if (!guide) { renderNotFound(); return; }
+
+  if (guide.comingSoon) {
+    app.innerHTML = `
+      <div class="page-header">
+        <div class="container">
+          <div class="breadcrumb">
+            <a href="#/">首页</a>
+            <span class="breadcrumb-sep">/</span>
+            <a href="#/guides">攻略中心</a>
+            <span class="breadcrumb-sep">/</span>
+            <span>${guide.title}</span>
+          </div>
+          <h1>${guide.title}</h1>
+        </div>
+      </div>
+      <div class="container">
+        <div class="empty-state" style="padding:100px 20px;">
+          <div class="empty-state-icon">
+            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+          </div>
+          <h3>攻略正在撰写中</h3>
+          <p>这篇攻略即将上线，请稍后再来查看</p>
+          <div style="margin-top:24px;">
+            <a href="#/guides" class="btn btn-outline">返回攻略列表</a>
+          </div>
+        </div>
+      </div>
+    `;
+    return;
+  }
+
+  const related = GUIDES.filter(g => g.id !== id && g.category === guide.category).slice(0, 2);
+  const otherRelated = GUIDES.filter(g => g.id !== id && g.category !== guide.category).slice(0, 2);
+  const allRelated = [...related, ...otherRelated].slice(0, 4);
+
+  app.innerHTML = `
+    <div class="page-header" style="padding-bottom:0; border-bottom:none;">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="#/">首页</a>
+          <span class="breadcrumb-sep">/</span>
+          <a href="#/guides">攻略中心</a>
+          <span class="breadcrumb-sep">/</span>
+          <a href="#/guides?cat=${guide.category}">${guide.categoryName}</a>
+          <span class="breadcrumb-sep">/</span>
+          <span>${guide.title}</span>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="detail-layout">
+        <div class="detail-content">
+          <article class="detail-article">
+            <h1>${guide.title}</h1>
+            <div class="detail-meta">
+              <div class="detail-meta-item"><span class="label">作者：</span>${guide.author}</div>
+              <div class="detail-meta-item"><span class="label">发布：</span>${guide.date}</div>
+              <div class="detail-meta-item"><span class="label">阅读：</span>${guide.readTime}</div>
+              <div class="detail-meta-item"><span class="label">分类：</span>${guide.categoryName}</div>
+            </div>
+            <div class="detail-body" id="detailBody">
+              ${guide.content}
+            </div>
+            ${guide.source ? `
+              <div class="detail-source">
+                <strong>来源：</strong><a href="${guide.source}" target="_blank" rel="noopener">${guide.sourceName}</a> · 内容仅供个人学习参考
+              </div>
+            ` : ''}
+          </article>
+
+          ${allRelated.length > 0 ? `
+            <div class="related-section">
+              <h3 class="related-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                相关攻略
+              </h3>
+              <div class="related-grid">
+                ${allRelated.map(g => `
+                  <div class="related-card" onclick="navigate('#/guide/${g.id}')">
+                    <div class="related-card-thumb"><img src="${g.image}" alt="${g.title}" loading="lazy"></div>
+                    <div class="related-card-info">
+                      <h4>${g.title}</h4>
+                      <span>${g.categoryName} · ${g.readTime}</span>
+                    </div>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          ` : ''}
+        </div>
+
+        <aside class="detail-sidebar">
+          <div class="toc-box">
+            <div class="toc-title">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+              文章目录
+            </div>
+            <div class="toc-list" id="tocList">
+              <div class="toc-item active" onclick="scrollToSection('top')">攻略概述</div>
+              <div class="toc-item" onclick="scrollToSection('h2-0')">掉落表总览</div>
+              <div class="toc-item" onclick="scrollToSection('h2-1')">使用说明</div>
+              <div class="toc-item" onclick="scrollToSection('h2-2')">刷取小贴士</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  `;
+}
+
+function scrollToSection(id) {
+  if (id === 'top') {
+    document.querySelector('.detail-article').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    return;
+  }
+  const headings = document.querySelectorAll('#detailBody h2');
+  const idx = parseInt(id.split('-')[1]);
+  if (headings[idx]) {
+    headings[idx].scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  document.querySelectorAll('.toc-item').forEach((item, i) => {
+    item.classList.toggle('active', i === idx + 1);
+  });
+}
+
+function renderWeapons() {
+  app.innerHTML = `
+    <div class="page-header">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="#/">首页</a>
+          <span class="breadcrumb-sep">/</span>
+          <span>武器图鉴</span>
+        </div>
+        <h1>武器图鉴</h1>
+        <p>仁王2 共 11 种武器，每种都有独特的武技与战斗风格</p>
+      </div>
+    </div>
+    <div class="section" style="padding-top:40px;">
+      <div class="container">
+        <div class="weapon-grid">
+          ${WEAPONS.map(w => `
+            <div class="weapon-card">
+              <span class="coming-soon">即将上线</span>
+              <div class="weapon-card-icon">${w.icon}</div>
+              <h3>${w.name}</h3>
+              <p>${w.desc}</p>
+              <div class="difficulty">
+                ${Array.from({length: 5}, (_, i) =>
+                  `<span class="diff-star${i >= w.difficulty ? ' empty' : ''}">★</span>`
+                ).join('')}
+              </div>
+            </div>
+          `).join('')}
+        </div>
+        <div style="text-align:center; margin-top:40px; color:var(--text-muted); font-size:0.88rem;">
+          各武器详细武技数据与配装方案正在整理中，敬请期待
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderBosses() {
+  app.innerHTML = `
+    <div class="page-header">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="#/">首页</a>
+          <span class="breadcrumb-sep">/</span>
+          <span>BOSS图鉴</span>
+        </div>
+        <h1>BOSS图鉴</h1>
+        <p>全BOSS招式解析、弱点属性与打法攻略</p>
+      </div>
+    </div>
+    <div class="section" style="padding-top:40px;">
+      <div class="container">
+        <div class="boss-grid">
+          ${BOSSES.map(b => `
+            <div class="boss-card">
+              <div class="boss-card-image">
+                <img src="${b.image}" alt="${b.name}" loading="lazy">
+                <div class="boss-card-name">${b.name}</div>
+              </div>
+              <div class="boss-card-body">
+                <div class="boss-card-tags">
+                  ${b.tags.map(t => `<span class="boss-tag">${t}</span>`).join('')}
+                  ${b.weak.map(w => `<span class="boss-tag weak">弱点:${w}</span>`).join('')}
+                </div>
+                <p class="boss-card-desc">${b.desc}</p>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+        <div style="text-align:center; margin-top:40px; color:var(--text-muted); font-size:0.88rem;">
+          更多BOSS详细打法攻略正在整理中
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderBuilds() {
+  app.innerHTML = `
+    <div class="page-header">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="#/">首页</a>
+          <span class="breadcrumb-sep">/</span>
+          <span>配装推荐</span>
+        </div>
+        <h1>配装推荐</h1>
+        <p>从开荒到毕业的完整配装方案，含恩宠套与深层配置</p>
+      </div>
+    </div>
+    <div class="section" style="padding-top:40px;">
+      <div class="container">
+        <div class="build-grid">
+          ${BUILDS.map(b => `
+            <div class="build-card">
+              <div class="build-card-header">
+                <div class="build-card-icon">${b.icon}</div>
+                <div>
+                  <h3>${b.name}</h3>
+                  <p>${b.subtitle}</p>
+                </div>
+              </div>
+              <div class="build-card-body">
+                <div class="build-stats">
+                  <div class="build-stat"><div class="build-stat-val">${b.offense}</div><div class="build-stat-label">输出</div></div>
+                  <div class="build-stat"><div class="build-stat-val">${b.defense}</div><div class="build-stat-label">生存</div></div>
+                  <div class="build-stat"><div class="build-stat-val">${b.difficulty}</div><div class="build-stat-label">难度</div></div>
+                </div>
+                <p class="build-card-desc">${b.desc}</p>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+        <div style="text-align:center; margin-top:40px; color:var(--text-muted); font-size:0.88rem;">
+          详细配装词条与恩宠组合正在整理中
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderAbout() {
+  app.innerHTML = `
+    <div class="page-header">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="#/">首页</a>
+          <span class="breadcrumb-sep">/</span>
+          <span>关于</span>
+        </div>
+        <h1>关于本站</h1>
+        <p>了解仁王2攻略帐的建站初衷与内容说明</p>
+      </div>
+    </div>
+    <div class="about-content">
+      <div class="about-card">
+        <h2>建站初衷</h2>
+        <p>仁王2攻略帐是一个个人维护的《仁王2》攻略查询站点，旨在为玩家提供一个界面美观、检索便捷的攻略资料库。本站内容整合自社区玩家的优质攻略，并经过整理与结构化，方便快速查阅。</p>
+        <p>如果你也是仁王系列的爱好者，欢迎将本站加入收藏，后续会持续更新更多攻略内容。</p>
+      </div>
+      <div class="about-card">
+        <h2>内容范围</h2>
+        <ul>
+          <li><strong>流程攻略</strong>：主线与支线任务的图文流程，含收集品位置</li>
+          <li><strong>BOSS打法</strong>：全BOSS的招式解析、弱点属性与无伤思路</li>
+          <li><strong>武器图鉴</strong>：11种武器的武技数据、上手难度与推荐</li>
+          <li><strong>数据资料</strong>：技能效果、词条重炼、守护灵、魂核等</li>
+          <li><strong>配装推荐</strong>：开荒到毕业的配装方案与恩宠套介绍</li>
+        </ul>
+      </div>
+      <div class="about-card">
+        <h2>版权声明</h2>
+        <p>本站为个人学习用途，不涉及任何商业行为。游戏《仁王2》(Nioh 2) 及其所有相关内容的版权归光荣特库摩 (Koei Tecmo) 与 Team Ninja 所有。</p>
+        <p>攻略内容标注了原始来源，如有侵权请联系删除。</p>
+      </div>
+      <div class="about-card">
+        <h2>技术栈</h2>
+        <p>本站采用纯前端单文件架构（HTML + CSS + JavaScript），无后端依赖，可直接部署到任意静态托管平台。使用 Hash 路由实现多页面切换，支持响应式布局，适配桌面端与移动端。</p>
+      </div>
+    </div>
+  `;
+}
+
+function renderNotFound() {
+  app.innerHTML = `
+    <div class="page-header"><div class="container"><h1>页面未找到</h1></div></div>
+    <div class="container">
+      <div class="empty-state" style="padding:100px 20px;">
+        <div class="empty-state-icon">
+          <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 15h8M9 9h.01M15 9h.01"/></svg>
+        </div>
+        <h3>404 - 页面不存在</h3>
+        <p>你访问的页面可能已被移动或删除</p>
+        <div style="margin-top:24px;">
+          <a href="#/" class="btn btn-primary">返回首页</a>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+// ===== Search =====
+const searchInput = document.getElementById('searchInput');
+const searchResults = document.getElementById('searchResults');
+
+searchInput.addEventListener('input', function() {
+  const q = this.value.trim().toLowerCase();
+  if (!q) { searchResults.classList.remove('open'); return; }
+
+  const results = GUIDES.filter(g =>
+    g.title.toLowerCase().includes(q) ||
+    g.excerpt.toLowerCase().includes(q) ||
+    g.categoryName.toLowerCase().includes(q)
+  );
+
+  if (results.length === 0) {
+    searchResults.innerHTML = '<div class="search-empty">未找到相关攻略</div>';
+  } else {
+    searchResults.innerHTML = results.map(g => `
+      <div class="search-result-item" onclick="navigate('#/guide/${g.id}'); searchResults.classList.remove('open'); searchInput.value='';">
+        <div class="search-result-thumb"><img src="${g.image}" alt=""></div>
+        <div class="search-result-info">
+          <div class="search-result-title">${g.title}</div>
+          <div class="search-result-cat">${g.categoryName} · ${g.author}</div>
+        </div>
+      </div>
+    `).join('');
+  }
+  searchResults.classList.add('open');
+});
+
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.nav-search')) {
+    searchResults.classList.remove('open');
+  }
+});
+
+// ===== Nav scroll effect =====
+const navbar = document.getElementById('navbar');
+const backToTop = document.getElementById('backToTop');
+
+window.addEventListener('scroll', function() {
+  navbar.classList.toggle('scrolled', window.scrollY > 20);
+  backToTop.classList.toggle('visible', window.scrollY > 400);
+});
+
+backToTop.addEventListener('click', function() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// ===== Mobile menu =====
+const navToggle = document.getElementById('navToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+
+navToggle.addEventListener('click', function() {
+  mobileMenu.classList.toggle('open');
+});
+
+function closeMobileMenu() {
+  mobileMenu.classList.remove('open');
+}
+
+// ===== Init =====
+window.addEventListener('hashchange', render);
+render();
+</script>
+</body>
+</html>
