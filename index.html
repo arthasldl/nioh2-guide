@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>仁王2 攻略帐 | Nioh 2 Complete Guide</title>
 <meta name="description" content="仁王2完整攻略查询站 - 流程攻略、BOSS打法、武器图鉴、技能数据、配装推荐一站式查询">
-<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Ma+Shan+Zheng&family=ZCOOL+XiaoWei&family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
 <style>
 /* ===== CSS Variables ===== */
 :root {
@@ -60,6 +60,8 @@ input { font-family: inherit; }
 /* ===== Utility ===== */
 .container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
 .serif { font-family: 'Noto Serif SC', serif; }
+.brush { font-family: 'Ma Shan Zheng', 'Noto Serif SC', cursive; }
+.xiaowei { font-family: 'ZCOOL XiaoWei', 'Noto Serif SC', serif; }
 .text-gold { color: var(--accent-gold); }
 .text-red { color: var(--accent-red-light); }
 .section { padding: 80px 0; }
@@ -110,12 +112,18 @@ input { font-family: inherit; }
 .nav-logo {
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-family: 'Noto Serif SC', serif;
-  font-size: 1.25rem;
-  font-weight: 700;
+  gap: 10px;
+  font-family: 'ZCOOL XiaoWei', 'Noto Serif SC', serif;
+  font-size: 1.15rem;
+  font-weight: 400;
   letter-spacing: 2px;
   flex-shrink: 0;
+}
+.nav-logo-img {
+  height: 34px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 6px rgba(201,169,97,0.3));
 }
 .nav-logo-mark {
   width: 36px;
@@ -138,7 +146,7 @@ input { font-family: inherit; }
   border-radius: 8px;
   opacity: 0.4;
 }
-.nav-logo-text span { color: var(--accent-gold); }
+.nav-logo-text span { color: var(--accent-gold); font-family: 'Ma Shan Zheng', cursive; font-size: 1.3rem; }
 .nav-links {
   display: flex;
   align-items: center;
@@ -284,12 +292,12 @@ input { font-family: inherit; }
   background: rgba(201,169,97,0.05);
 }
 .hero-title {
-  font-family: 'Noto Serif SC', serif;
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
-  font-weight: 900;
-  line-height: 1.15;
+  font-family: 'Ma Shan Zheng', 'Noto Serif SC', cursive;
+  font-size: clamp(2.8rem, 7vw, 5rem);
+  font-weight: 400;
+  line-height: 1.2;
   margin-bottom: 16px;
-  letter-spacing: 4px;
+  letter-spacing: 6px;
   text-shadow: 0 4px 30px rgba(0,0,0,0.8);
 }
 .hero-title .accent {
@@ -773,6 +781,131 @@ input { font-family: inherit; }
   color: var(--text-secondary);
   font-style: italic;
 }
+
+/* ===== Drop Table Search ===== */
+.drop-table-toolbar {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin: 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+.drop-table-search {
+  flex: 1;
+  min-width: 200px;
+  position: relative;
+}
+.drop-table-search input {
+  width: 100%;
+  padding: 10px 14px 10px 38px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  outline: none;
+  transition: var(--transition);
+}
+.drop-table-search input:focus { border-color: var(--accent-gold); box-shadow: 0 0 0 3px rgba(201,169,97,0.1); }
+.drop-table-search svg {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+}
+.drop-table-filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.drop-table-filter {
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--transition);
+  background: var(--bg-card);
+}
+.drop-table-filter:hover { border-color: var(--border-light); color: var(--text-primary); }
+.drop-table-filter.active {
+  background: var(--accent-red);
+  border-color: var(--accent-red);
+  color: #fff;
+}
+.drop-table-stats {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+.drop-table-wrapper {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin: 16px 0;
+}
+.drop-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  min-width: 700px;
+}
+.drop-table th {
+  background: var(--bg-secondary);
+  color: var(--accent-gold);
+  font-weight: 600;
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 2px solid var(--accent-red);
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  position: sticky;
+  top: 0;
+}
+.drop-table th:hover { background: var(--bg-card); }
+.drop-table th .sort-icon { font-size: 0.7rem; margin-left: 4px; opacity: 0.5; }
+.drop-table th.sort-asc .sort-icon, .drop-table th.sort-desc .sort-icon { opacity: 1; color: var(--accent-red); }
+.drop-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-primary);
+}
+.drop-table tbody tr { transition: background 0.15s; }
+.drop-table tbody tr:hover { background: rgba(201,169,97,0.04); }
+.drop-table tbody tr:nth-child(even) { background: rgba(255,255,255,0.015); }
+.drop-table tbody tr:nth-child(even):hover { background: rgba(201,169,97,0.06); }
+.drop-table .tag-type {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+.drop-table .tag-type.skill { background: rgba(185,28,28,0.15); color: var(--accent-red-light); border: 1px solid rgba(185,28,28,0.3); }
+.drop-table .tag-type.forge { background: rgba(201,169,97,0.12); color: var(--accent-gold); border: 1px solid rgba(201,169,97,0.25); }
+.drop-table .tag-cat {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+}
+.drop-table .note-cell { color: var(--text-muted); font-size: 0.8rem; }
+.drop-table-empty {
+  padding: 40px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
 .detail-source {
   margin-top: 32px;
   padding: 16px 20px;
@@ -1247,8 +1380,8 @@ input { font-family: inherit; }
 <nav class="nav" id="navbar">
   <div class="nav-inner">
     <a href="#/" class="nav-logo" data-route="/">
-      <div class="nav-logo-mark">仁</div>
-      <div class="nav-logo-text">仁王<span>2</span> 攻略帐</div>
+      <img src="https://aka.doubaocdn.com/s/kzgU41CIJZ" alt="仁王2" class="nav-logo-img">
+      <div class="nav-logo-text">攻略帐</div>
     </a>
     <div class="nav-links" id="navLinks">
       <a href="#/" class="nav-link" data-route="/">首页</a>
@@ -1293,8 +1426,8 @@ input { font-family: inherit; }
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="nav-logo">
-          <div class="nav-logo-mark">仁</div>
-          <div class="nav-logo-text">仁王<span>2</span> 攻略帐</div>
+          <img src="https://aka.doubaocdn.com/s/kzgU41CIJZ" alt="仁王2" class="nav-logo-img">
+          <div class="nav-logo-text">攻略帐</div>
         </div>
         <p>专注于《仁王2》的完整攻略查询站点，涵盖流程攻略、BOSS打法、武器图鉴、技能数据与配装推荐，助力每一位武士通关深层。</p>
       </div>
@@ -1368,6 +1501,199 @@ const BUILDS = [
   { name: '阴阳术法伤流', icon: '咒', subtitle: '元素爆发输出', offense: 'S', defense: 'C', difficulty: '中', desc: '以阴阳术附加元素属性，配合武器武技触发混沌状态造成巨额伤害。推荐恩宠：月读 / 思兼神。' }
 ];
 
+// ===== Drop Table Data =====
+const DROP_TABLE_DATA = [
+  // ===== 武技 =====
+  { name: '昂龙牙', type: '武技', category: '太刀', enemy: '斋藤义龙', mission: '虚幻魔城', chapter: '飞翔篇', note: '' },
+  { name: '夜叉一文字', type: '武技', category: '太刀', enemy: '浅井长政', mission: '笼中之翼', chapter: '暗影篇', note: '' },
+  { name: '昂龙爪', type: '武技', category: '双刀', enemy: '斋藤义龙', mission: '虚幻魔城', chapter: '飞翔篇', note: '' },
+  { name: '不逊罚', type: '武技', category: '双刀', enemy: '今川义元', mission: '妖人的桶狭间', chapter: '飞翔篇', note: '' },
+  { name: '重·十文字', type: '武技', category: '双刀', enemy: '藤吉郎', mission: '双面款待', chapter: '薄明篇', note: '' },
+  { name: '双头斩', type: '武技', category: '双刀', enemy: '藤吉郎', mission: '双面款待', chapter: '薄明篇', note: '醍醐赏樱的妖化秀吉也掉落' },
+  { name: '青岚', type: '武技', category: '长枪', enemy: '前田利家', mission: '灭亡的晚钟', chapter: '薄明篇', note: '' },
+  { name: '婆娑罗三段', type: '武技', category: '长枪', enemy: '前田利家', mission: '灭亡的晚钟', chapter: '薄明篇', note: '' },
+  { name: '昂龙角', type: '武技', category: '大太刀', enemy: '斋藤义龙', mission: '虚幻魔城', chapter: '飞翔篇', note: '' },
+  { name: '巴吹雪', type: '武技', category: '大太刀', enemy: '真柄直隆', mission: '尸山冰河', chapter: '暗影篇', note: '' },
+  { name: '夜叉岚', type: '武技', category: '大斧', enemy: '弥助', mission: '御前对决', chapter: '暗影篇', note: '' },
+  { name: '鬼神陀螺', type: '武技', category: '双斧', enemy: '柴田胜家', mission: '灭亡的晚钟', chapter: '薄明篇', note: '' },
+  { name: '水神踢', type: '武技', category: '锁链', enemy: '蜂须贺小六', mission: '冲天之魔', chapter: '薄明篇', note: '' },
+  { name: '落华严', type: '武技', category: '锁链', enemy: '蜂须贺小六', mission: '冲天之魔', chapter: '薄明篇', note: '' },
+  { name: '修罗连舞碎', type: '武技', category: '旋棍', enemy: '服部半藏', mission: '训练场·犹如紫电', chapter: '薄明篇', note: '' },
+  { name: '月风扫斩', type: '武技', category: '薙刀镰', enemy: '今川义元', mission: '妖人的桶狭间', chapter: '飞翔篇', note: '' },
+  { name: '流舞锋', type: '武技', category: '薙刀镰', enemy: '无明', mission: '训练场·双眸镰利', chapter: '薄明篇', note: '' },
+  // ===== 太刀锻造书 =====
+  { name: '有动刀', type: '锻造书', category: '太刀', enemy: '斋藤义龙', mission: '虚幻魔城', chapter: '飞翔篇', note: '' },
+  { name: '宗三左文字·松仓江', type: '锻造书', category: '太刀', enemy: '今川义元', mission: '妖人的桶狭间', chapter: '飞翔篇', note: '' },
+  { name: '浅井一文字', type: '锻造书', category: '太刀', enemy: '浅井长政', mission: '笼中之翼', chapter: '暗影篇', note: '' },
+  { name: '星切太刀', type: '锻造书', category: '太刀', enemy: '弥助', mission: '御前对决', chapter: '暗影篇', note: '' },
+  { name: '实休光忠', type: '锻造书', category: '太刀', enemy: '织田信长', mission: '魔王之剑', chapter: '暗影篇', note: '' },
+  { name: '八丁念佛', type: '锻造书', category: '太刀', enemy: '杂贺孙一', mission: '深入的覆水', chapter: '旭光篇', note: '' },
+  { name: '楚叶矢之剑', type: '锻造书', category: '太刀', enemy: '火车', mission: '燃焰未捷', chapter: '旭光篇', note: '' },
+  { name: '两面宿傩之剑', type: '锻造书', category: '太刀', enemy: '两面宿傩', mission: '天王山的落日', chapter: '旭光篇', note: '' },
+  { name: '彦右卫门一文字', type: '锻造书', category: '太刀', enemy: '两面宿傩', mission: '天王山的落日', chapter: '旭光篇', note: '' },
+  { name: '不动国行·药研藤四郎', type: '锻造书', category: '太刀', enemy: '松永久秀', mission: '三恶枭雄', chapter: '旭光篇', note: '' },
+  { name: '大典太光世', type: '锻造书', category: '太刀', enemy: '前田利家', mission: '灭亡的晚钟', chapter: '薄明篇', note: '' },
+  { name: '笑面青江', type: '锻造书', category: '太刀', enemy: '柴田胜家', mission: '灭亡的晚钟', chapter: '薄明篇', note: '' },
+  { name: '明智近景', type: '锻造书', category: '太刀', enemy: '藤吉郎', mission: '双面款待', chapter: '薄明篇', note: '' },
+  { name: '大包平·莺丸', type: '锻造书', category: '太刀', enemy: '池田恒与', mission: '双面款待', chapter: '薄明篇', note: '道中BOSS' },
+  { name: '雷切', type: '锻造书', category: '太刀', enemy: '酒吞童子', mission: '封魔灵堂', chapter: '梦路篇', note: '' },
+  { name: '狮子王·骨食', type: '锻造书', category: '太刀', enemy: '酒吞童子', mission: '封魔灵堂', chapter: '梦路篇', note: '' },
+  { name: '水神切兼光', type: '锻造书', category: '太刀', enemy: '完全体藤吉郎', mission: '醍醐赏樱', chapter: '梦路篇', note: '' },
+  { name: '念珠丸恒次', type: '锻造书', category: '太刀', enemy: '完全体藤吉郎', mission: '醍醐赏樱', chapter: '梦路篇', note: '' },
+  { name: '小夜岚', type: '锻造书', category: '太刀', enemy: '完全体藤吉郎', mission: '醍醐赏樱', chapter: '梦路篇', note: '' },
+  { name: '萤丸', type: '锻造书', category: '太刀', enemy: '完全体藤吉郎', mission: '醍醐赏樱', chapter: '梦路篇', note: '' },
+  { name: '压切长谷部', type: '锻造书', category: '太刀', enemy: '果心居士', mission: '醍醐赏樱', chapter: '梦路篇', note: '' },
+  { name: '七星剑·丙子椒林剑', type: '锻造书', category: '太刀', enemy: '威廉', mission: '碧眼武士', chapter: '残照篇', note: '' },
+  { name: '鬼丸国纲', type: '锻造书', category: '太刀', enemy: '威廉', mission: '碧眼武士', chapter: '残照篇', note: '' },
+  { name: '烛台切光忠·镐藤四郎', type: '锻造书', category: '太刀', enemy: '大岳丸', mission: '映于眼眸', chapter: '残照篇', note: '' },
+  { name: '敦贺正宗·包丁藤四郎', type: '锻造书', category: '太刀', enemy: '大岳丸', mission: '映于眼眸', chapter: '残照篇', note: '' },
+  { name: '一期一振·亲子藤四郎', type: '锻造书', category: '太刀', enemy: '完全体藤吉郎', mission: '醍醐赏樱', chapter: '梦路篇', note: '二周目' },
+  { name: '三日月宗近', type: '锻造书', category: '太刀', enemy: '果心居士', mission: '醍醐赏樱', chapter: '梦路篇', note: '二周目' },
+  { name: '石田正宗', type: '锻造书', category: '太刀', enemy: '大岳丸', mission: '映于眼眸', chapter: '残照篇', note: '二周目' },
+  { name: '备前景安', type: '锻造书', category: '太刀', enemy: '塚原卜传', mission: '训练场·武道奥传', chapter: '旭光篇', note: '' },
+  { name: '二铭则宗·骨食藤四郎', type: '锻造书', category: '太刀', enemy: '足利义辉', mission: '训练场·二条剑豪', chapter: '薄明篇', note: '' },
+  { name: '大般若长光·铇切', type: '锻造书', category: '太刀', enemy: '任务奖励', mission: '黄金国度', chapter: '暗影篇', note: '二周目' },
+  { name: '无常刀', type: '锻造书', category: '太刀', enemy: '任务奖励', mission: '秀龙的遗支', chapter: '飞翔篇', note: '二周目' },
+  { name: '笼钓瓶村正·猪切', type: '锻造书', category: '太刀', enemy: '任务奖励', mission: '漂泊刀匠', chapter: '梦路篇', note: '' },
+  { name: '舞蹈刀', type: '锻造书', category: '太刀', enemy: '任务奖励', mission: '妖怪神乐', chapter: '旭光篇', note: '' },
+  // ===== 长枪锻造书 =====
+  { name: '蜻蜓切', type: '锻造书', category: '长枪', enemy: '本多忠胜', mission: '蜻蜓于手、角于顶', chapter: '暗影篇', note: '' },
+  { name: '赤鬼三角枪', type: '锻造书', category: '长枪', enemy: '火车', mission: '燃焰未捷', chapter: '旭光篇', note: '' },
+  { name: '又左长枪', type: '锻造书', category: '长枪', enemy: '前田利家', mission: '灭亡的晚钟', chapter: '薄明篇', note: '' },
+  { name: '一国长吉之枪', type: '锻造书', category: '长枪', enemy: '藤吉郎', mission: '双面款待', chapter: '薄明篇', note: '' },
+  { name: '日本号', type: '锻造书', category: '长枪', enemy: '福岛正则', mission: '醍醐赏樱', chapter: '梦路篇', note: '贱岳七本枪' },
+  { name: '肥后之虎枪', type: '锻造书', category: '长枪', enemy: '加藤清正', mission: '醍醐赏樱', chapter: '梦路篇', note: '贱岳七本枪' },
+  { name: '御手杵', type: '锻造书', category: '长枪', enemy: '果心居士', mission: '醍醐赏樱', chapter: '梦路篇', note: '' },
+  { name: '皆朱枪', type: '锻造书', category: '长枪', enemy: '前田庆次', mission: '大边武者', chapter: '梦路篇', note: '' },
+  { name: '比比罗木之八寻矛', type: '锻造书', category: '长枪', enemy: '大岳丸', mission: '映于眼眸', chapter: '残照篇', note: '' },
+  { name: '布都御魂', type: '锻造书', category: '长枪', enemy: '大岳丸', mission: '映于眼眸', chapter: '残照篇', note: '' },
+  { name: '大千鸟十字枪', type: '锻造书', category: '长枪', enemy: '大岳丸', mission: '映于眼眸', chapter: '残照篇', note: '二周目' },
+  { name: '鬼左近之枪', type: '锻造书', category: '长枪', enemy: '大岳丸', mission: '映于眼眸', chapter: '残照篇', note: '二周目' },
+  { name: '猿飞秘枪棍', type: '锻造书', category: '长枪', enemy: '大岳丸', mission: '映于眼眸', chapter: '残照篇', note: '二周目' },
+  { name: '山姥之枪', type: '锻造书', category: '长枪', enemy: '大岳丸', mission: '映于眼眸', chapter: '残照篇', note: '二周目' },
+  { name: '鬼半藏的枪', type: '锻造书', category: '长枪', enemy: '服部半藏', mission: '训练场·鬼半藏', chapter: '薄明篇', note: '' },
+  // ===== 大太刀锻造书 =====
+  { name: '太郎太刀', type: '锻造书', category: '大太刀', enemy: '真柄直隆', mission: '尸山冰河', chapter: '暗影篇', note: '' },
+  { name: '次郎太刀', type: '锻造书', category: '大太刀', enemy: '真柄直澄', mission: '尸山冰河', chapter: '暗影篇', note: 'BOSS进常暗召唤的尸狂' },
+  { name: '冰狱', type: '锻造书', category: '大太刀', enemy: '大太法师', mission: '冲天之魔', chapter: '薄明篇', note: '' },
+  { name: '独脚多多良大太刀', type: '锻造书', category: '大太刀', enemy: '独脚多多良', mission: '妖怪小怪', chapter: '全域', note: '' },
+  // ===== 大斧/双斧锻造书 =====
+  { name: '牛头天王之斧', type: '锻造书', category: '大斧', enemy: '弥助', mission: '御前对决', chapter: '暗影篇', note: '' },
+  { name: '破瓶二丁斧', type: '锻造书', category: '双斧', enemy: '柴田胜家', mission: '灭亡的晚钟', chapter: '薄明篇', note: '' },
+  { name: '入峰之斧', type: '锻造书', category: '大斧', enemy: '大太法师', mission: '冲天之魔', chapter: '薄明篇', note: '' },
+  { name: '两面宿傩之斧', type: '锻造书', category: '大斧', enemy: '两面宿傩', mission: '天王山的落日', chapter: '旭光篇', note: '' },
+  { name: '天目一个神之斧', type: '锻造书', category: '大斧', enemy: '大岳丸', mission: '映于眼眸', chapter: '残照篇', note: '' },
+  { name: '破军板斧', type: '锻造书', category: '大斧', enemy: '果心居士', mission: '醍醐赏樱', chapter: '梦路篇', note: '' },
+  { name: '怪童板斧', type: '锻造书', category: '大斧', enemy: '坂田金时', mission: '训练场·至大金刚', chapter: '薄明篇', note: '' },
+  { name: '狱卒之斧', type: '锻造书', category: '大斧', enemy: '妖鬼', mission: '妖怪小怪', chapter: '全域', note: '' },
+  { name: '玄翁大锤', type: '锻造书', category: '大斧', enemy: '威廉', mission: '碧眼武士', chapter: '残照篇', note: '' },
+  { name: '鬼神大锤', type: '锻造书', category: '大斧', enemy: '威廉', mission: '碧眼武士', chapter: '残照篇', note: '二周目' },
+  // ===== 锁链锻造书 =====
+  { name: '飞仓锁链', type: '锻造书', category: '锁链', enemy: '真柄直隆', mission: '尸山冰河', chapter: '暗影篇', note: '' },
+  { name: '川并众锁链', type: '锻造书', category: '锁链', enemy: '蜂须贺小六', mission: '冲天之魔', chapter: '薄明篇', note: '' },
+  { name: '肉户锁链', type: '锻造书', category: '锁链', enemy: '司箭院兴仙', mission: '训练场·断空锁链', chapter: '薄明篇', note: '' },
+  // ===== 旋棍锻造书 =====
+  { name: '双头蛇旋棍', type: '锻造书', category: '旋棍', enemy: '真柄直隆', mission: '尸山冰河', chapter: '暗影篇', note: '' },
+  { name: '两仪旋棍', type: '锻造书', category: '旋棍', enemy: '酒吞童子', mission: '封魔灵堂', chapter: '梦路篇', note: '' },
+  { name: '却邪旋棍', type: '锻造书', category: '旋棍', enemy: '长壁姬', mission: '黄金城池', chapter: '梦路篇', note: '' },
+  { name: '白骨精旋棍', type: '锻造书', category: '旋棍', enemy: '世界掉落', mission: '常世敌人', chapter: '全域', note: '可开常世的怪都有可能出' },
+  // ===== 薙刀镰锻造书 =====
+  { name: '黑莲', type: '锻造书', category: '薙刀镰', enemy: '无明', mission: '训练场·双眸镰利', chapter: '薄明篇', note: '' },
+  // ===== 手斧锻造书 =====
+  { name: '凶贼手斧', type: '锻造书', category: '手斧', enemy: '世界掉落', mission: '常世敌人', chapter: '全域', note: '' },
+  { name: '行者手斧', type: '锻造书', category: '手斧', enemy: '任务奖励', mission: '全任务50%完成', chapter: '全域', note: '' },
+  // ===== 远程武器锻造书 =====
+  { name: '海道第一大名之弓', type: '锻造书', category: '远程', enemy: '今川义元', mission: '妖人的桶狭间', chapter: '飞翔篇', note: '' },
+  { name: '鸦羽火枪', type: '锻造书', category: '远程', enemy: '杂贺孙一', mission: '深入的覆水', chapter: '旭光篇', note: '' },
+  { name: '两面宿傩之弓', type: '锻造书', category: '远程', enemy: '两面宿傩', mission: '天王山的落日', chapter: '旭光篇', note: '' },
+  { name: '西国无双之弓', type: '锻造书', category: '远程', enemy: '酒吞童子', mission: '封魔灵堂', chapter: '梦路篇', note: '' },
+  { name: '角突弓', type: '锻造书', category: '远程', enemy: '大岳丸', mission: '映于眼眸', chapter: '残照篇', note: '' },
+  { name: '早鹰', type: '锻造书', category: '远程', enemy: '加藤段藏', mission: '训练场·忍道奥传', chapter: '旭光篇', note: '' },
+  // ===== 防具锻造书（精选） =====
+  { name: '玄龙大铠', type: '锻造书', category: '防具', enemy: '斋藤义龙', mission: '虚幻魔城', chapter: '飞翔篇', note: '' },
+  { name: '海道第一大名之铠', type: '锻造书', category: '防具', enemy: '今川义元', mission: '妖人的桶狭间', chapter: '飞翔篇', note: '' },
+  { name: '江北雄豪之铠', type: '锻造书', category: '防具', enemy: '浅井长政', mission: '笼中之翼', chapter: '暗影篇', note: '' },
+  { name: '履行大义之铠', type: '锻造书', category: '防具', enemy: '浅井长政', mission: '笼中之翼', chapter: '暗影篇', note: '' },
+  { name: '漆黑大铠', type: '锻造书', category: '防具', enemy: '弥助', mission: '御前对决', chapter: '暗影篇', note: '' },
+  { name: '上总介之铠', type: '锻造书', category: '防具', enemy: '织田信长', mission: '魔王之剑', chapter: '暗影篇', note: '' },
+  { name: '东国无双之铠', type: '锻造书', category: '防具', enemy: '本多忠胜', mission: '蜻蜓于手、角于顶', chapter: '暗影篇', note: '' },
+  { name: '八尺乌轻铠', type: '锻造书', category: '防具', enemy: '杂贺孙一', mission: '深入的覆水', chapter: '旭光篇', note: '' },
+  { name: '坚守者中铠', type: '锻造书', category: '防具', enemy: '杂贺孙一', mission: '深入的覆水', chapter: '旭光篇', note: '' },
+  { name: '枭雄之铠', type: '锻造书', category: '防具', enemy: '松永久秀', mission: '三恶枭雄', chapter: '旭光篇', note: '' },
+  { name: '枪又左之铠', type: '锻造书', category: '防具', enemy: '前田利家', mission: '灭亡的晚钟', chapter: '薄明篇', note: '' },
+  { name: '鬼柴田之铠', type: '锻造书', category: '防具', enemy: '柴田胜家', mission: '灭亡的晚钟', chapter: '薄明篇', note: '' },
+  { name: '金葫芦之铠', type: '锻造书', category: '防具', enemy: '藤吉郎', mission: '双面款待', chapter: '薄明篇', note: '' },
+  { name: '惟任日向守之铠', type: '锻造书', category: '防具', enemy: '藤吉郎', mission: '双面款待', chapter: '薄明篇', note: '' },
+  { name: '川并众战甲', type: '锻造书', category: '防具', enemy: '蜂须贺小六', mission: '冲天之魔', chapter: '薄明篇', note: '' },
+  { name: '豪放猛牛之铠', type: '锻造书', category: '防具', enemy: '大太法师', mission: '冲天之魔', chapter: '薄明篇', note: '' },
+  { name: '赤鬼轻铠', type: '锻造书', category: '防具', enemy: '大太法师', mission: '冲天之魔', chapter: '薄明篇', note: '' },
+  { name: '祈月斗将之铠', type: '锻造书', category: '防具', enemy: '山中鹿之介', mission: '月下祈愿', chapter: '薄明篇', note: '尸狂' },
+  { name: '西国无双之铠', type: '锻造书', category: '防具', enemy: '酒吞童子', mission: '封魔灵堂', chapter: '梦路篇', note: '' },
+  { name: '金吾中铠', type: '锻造书', category: '防具', enemy: '酒吞童子', mission: '封魔灵堂', chapter: '梦路篇', note: '' },
+  { name: '肥后之虎铠', type: '锻造书', category: '防具', enemy: '加藤清正', mission: '醍醐赏樱', chapter: '梦路篇', note: '贱岳七本枪' },
+  { name: '日轮之子之铠', type: '锻造书', category: '防具', enemy: '完全体藤吉郎', mission: '醍醐赏樱', chapter: '梦路篇', note: '' },
+  { name: '绝群倾奇之铠', type: '锻造书', category: '防具', enemy: '前田庆次', mission: '大边武者', chapter: '梦路篇', note: '' },
+  { name: '独眼龙中铠', type: '锻造书', category: '防具', enemy: '威廉', mission: '碧眼武士', chapter: '残照篇', note: '' },
+  { name: '少武者中铠', type: '锻造书', category: '防具', enemy: '威廉', mission: '碧眼武士', chapter: '残照篇', note: '' },
+  { name: '土佐守轻铠', type: '锻造书', category: '防具', enemy: '威廉', mission: '碧眼武士', chapter: '残照篇', note: '' },
+  { name: '傲世才子之铠', type: '锻造书', category: '防具', enemy: '大岳丸', mission: '映于眼眸', chapter: '残照篇', note: '' },
+  { name: '日本第一兵之铠', type: '锻造书', category: '防具', enemy: '大岳丸', mission: '映于眼眸', chapter: '残照篇', note: '' },
+  { name: '清廉义铠', type: '锻造书', category: '防具', enemy: '大岳丸', mission: '映于眼眸', chapter: '残照篇', note: '' },
+  { name: '刑部轻铠', type: '锻造书', category: '防具', enemy: '大岳丸', mission: '映于眼眸', chapter: '残照篇', note: '二周目' },
+  { name: '剑圣之衣', type: '锻造书', category: '防具', enemy: '塚原卜传', mission: '训练场·武道奥传', chapter: '旭光篇', note: '' },
+  { name: '伊贺上忍装束', type: '锻造书', category: '防具', enemy: '服部半藏', mission: '训练场·鬼半藏/犹如紫电', chapter: '薄明篇', note: '' },
+  { name: '剑豪将军大铠', type: '锻造书', category: '防具', enemy: '足利义辉', mission: '训练场·二条剑豪', chapter: '薄明篇', note: '' },
+  { name: '怪童大铠', type: '锻造书', category: '防具', enemy: '坂田金时', mission: '训练场·至大金刚/金刚旋风', chapter: '薄明篇', note: '' },
+  { name: '鸢加藤忍衣', type: '锻造书', category: '防具', enemy: '加藤段藏', mission: '训练场·忍道奥传', chapter: '旭光篇', note: '' },
+  { name: '阴阳武者战甲', type: '锻造书', category: '防具', enemy: '任务奖励', mission: '调和待举', chapter: '梦路篇', note: '二周目' },
+  { name: '再世孔明之铠', type: '锻造书', category: '防具', enemy: '任务奖励', mission: '花香音信', chapter: '梦路篇', note: '二周目' },
+  { name: '霸王将军铠', type: '锻造书', category: '防具', enemy: '任务奖励', mission: '随从', chapter: '旭光篇', note: '二周目' },
+  { name: '玄冥阴阳装束', type: '锻造书', category: '防具', enemy: '任务奖励', mission: '九字结印', chapter: '梦路篇', note: '二周目' },
+  // ===== 头盔/饰品 =====
+  { name: '猪前立头盔', type: '锻造书', category: '防具', enemy: '冈部元信', mission: '今川钟意者', chapter: '飞翔篇', note: '' },
+  { name: '诹访法性头盔', type: '锻造书', category: '防具', enemy: '武田信玄', mission: '巨星陨落', chapter: '暗影篇', note: '' },
+  { name: '道鬼斋头盔', type: '锻造书', category: '防具', enemy: '山本勘助', mission: '巨星陨落', chapter: '暗影篇', note: '离BOSS最近的长枪血刀' },
+  { name: '六字名号头盔', type: '锻造书', category: '防具', enemy: '森兰丸', mission: '侍从', chapter: '旭光篇', note: '血刀冢' },
+  { name: '龙头型头盔', type: '锻造书', category: '防具', enemy: '森长可', mission: '双面款待', chapter: '薄明篇', note: '道中BOSS' },
+  { name: '改良冠形头盔', type: '锻造书', category: '防具', enemy: '池田恒与', mission: '双面款待', chapter: '薄明篇', note: '道中BOSS' },
+  { name: '稿编笠形头盔', type: '锻造书', category: '防具', enemy: '仙石秀久', mission: '亡者寄来的信', chapter: '薄明篇', note: '' },
+  { name: '总黑熊毛植盔', type: '锻造书', category: '防具', enemy: '片桐且元', mission: '醍醐赏樱', chapter: '梦路篇', note: '贱岳七本枪' },
+  { name: '一之谷型头盔', type: '锻造书', category: '防具', enemy: '福岛正则', mission: '醍醐赏樱', chapter: '梦路篇', note: '贱岳七本枪' },
+  { name: '富士山形盔', type: '锻造书', category: '防具', enemy: '加藤嘉明', mission: '醍醐赏樱', chapter: '梦路篇', note: '贱岳七本枪' },
+  { name: '错轮纹立缨后立盔', type: '锻造书', category: '防具', enemy: '胁坂安治', mission: '醍醐赏樱', chapter: '梦路篇', note: '贱岳七本枪' },
+  { name: '日轮前立头盔', type: '锻造书', category: '防具', enemy: '大岳丸', mission: '映于眼眸', chapter: '残照篇', note: '' },
+  { name: '螺旋角眼镜头盔', type: '锻造书', category: '防具', enemy: '威廉', mission: '碧眼武士', chapter: '残照篇', note: '' },
+  { name: '酒吞童子的铁棒', type: '锻造书', category: '防具', enemy: '酒吞童子', mission: '封魔灵堂', chapter: '梦路篇', note: '二周目' },
+  { name: '木灵碗', type: '锻造书', category: '防具', enemy: '任务奖励', mission: '全任务完成', chapter: '全域', note: '' },
+  // ===== 妖怪小怪掉落 =====
+  { name: '山姥菜刀', type: '锻造书', category: '其他', enemy: '山姥', mission: '妖怪小怪', chapter: '全域', note: '' },
+  { name: '天狗面', type: '锻造书', category: '其他', enemy: '乌鸦天狗', mission: '妖怪小怪', chapter: '全域', note: '' },
+  { name: '女面', type: '锻造书', category: '其他', enemy: '濡女', mission: '妖怪小怪', chapter: '全域', note: '' },
+  { name: '红蜘蛛', type: '锻造书', category: '其他', enemy: '濡女', mission: '妖怪小怪', chapter: '全域', note: '' },
+  { name: '翁面', type: '锻造书', category: '其他', enemy: '三目八面', mission: '妖怪小怪', chapter: '全域', note: '' },
+  { name: '怨灵面', type: '锻造书', category: '其他', enemy: '三目八面', mission: '妖怪小怪', chapter: '全域', note: '' },
+  { name: '般若面', type: '锻造书', category: '其他', enemy: '三目八面', mission: '妖怪小怪', chapter: '全域', note: '' },
+  { name: '鬼神面', type: '锻造书', category: '其他', enemy: '三目八面', mission: '妖怪小怪', chapter: '全域', note: '' },
+  { name: '古笼火之枪', type: '锻造书', category: '其他', enemy: '古笼火', mission: '妖怪小怪', chapter: '全域', note: '' },
+  { name: '染血大菜刀', type: '锻造书', category: '其他', enemy: '生剥鬼', mission: '妖怪小怪', chapter: '全域', note: '' },
+  { name: '染血双锲', type: '锻造书', category: '其他', enemy: '生剥鬼', mission: '妖怪小怪', chapter: '全域', note: '' },
+  { name: '独脚多多良之锤', type: '锻造书', category: '其他', enemy: '独脚多多良', mission: '妖怪小怪', chapter: '全域', note: '' },
+  { name: '怨灵鬼头盔', type: '锻造书', category: '其他', enemy: '怨灵鬼', mission: '妖怪小怪', chapter: '全域', note: '' },
+  { name: '赤河童头盔', type: '锻造书', category: '其他', enemy: '赤河童', mission: '妖怪小怪', chapter: '全域', note: '二周目' },
+  { name: '烟罗面', type: '锻造书', category: '其他', enemy: '烟烟罗', mission: '烟炎之怪', chapter: '觉醒篇', note: '' },
+  { name: '楚叶矢众铠', type: '锻造书', category: '其他', enemy: '楚叶矢众', mission: '人型小怪', chapter: '全域', note: '' },
+  { name: '楚叶矢众装束', type: '锻造书', category: '其他', enemy: '楚叶矢众', mission: '人型小怪', chapter: '全域', note: '' },
+  { name: '黑狐面', type: '锻造书', category: '其他', enemy: '阴阳师', mission: '人型小怪', chapter: '全域', note: '' },
+  { name: '白狐面', type: '锻造书', category: '其他', enemy: '阴阳师', mission: '人型小怪', chapter: '全域', note: '' },
+  // ===== 世界掉落 =====
+  { name: '万骨', type: '锻造书', category: '其他', enemy: '世界掉落', mission: '常世敌人', chapter: '全域', note: '可开常世的怪都有可能出' },
+  { name: '忌龙', type: '锻造书', category: '其他', enemy: '世界掉落', mission: '常世敌人', chapter: '全域', note: '可开常世的怪都有可能出' },
+  { name: '曝野·白枝', type: '锻造书', category: '其他', enemy: '世界掉落', mission: '常世敌人', chapter: '全域', note: '可开常世的怪都有可能出' },
+  { name: '斩朽绳', type: '锻造书', category: '其他', enemy: '世界掉落', mission: '常世敌人', chapter: '全域', note: '可开常世的怪都有可能出' },
+  { name: '蜥蜴丸', type: '锻造书', category: '其他', enemy: '世界掉落', mission: '常世敌人', chapter: '全域', note: '可开常世的怪都有可能出' },
+  { name: '小松明', type: '锻造书', category: '其他', enemy: '世界掉落', mission: '常世敌人', chapter: '全域', note: '可开常世的怪都有可能出' }
+];
+
 const GUIDES = [
   {
     id: 'skill-drop-table',
@@ -1380,26 +1706,26 @@ const GUIDES = [
     excerpt: '《仁王2》中武技与锻造书的掉落都是很重要的东西，那么锻造书都在什么任务中掉落呢？本文为大家带来完整的武技与锻造书掉落表。',
     image: 'https://aka.doubaocdn.com/s/HrSYa2Mnbz',
     content: `
-<p>《仁王2》中武技与锻造书的掉落都是很重要的东西，那么锻造书都在什么任务中掉落呢？现在为大家带来"Panoramix"的《仁王2》武技与锻造书掉落表分享，希望对大家有所帮助。</p>
-<h2>掉落表总览</h2>
-<p>下表汇总了游戏中全部武技书与锻造书的掉落来源，包括掉落任务、掉落敌人以及获取条件。玩家可以根据需要刷取对应的任务来获得目标武技或锻造书。</p>
-<img src="https://aka.doubaocdn.com/s/HrSYa2Mnbz" alt="仁王2武技与锻造书掉落表" style="width:100%;">
-<p class="image-caption">▲ 仁王2 武技与锻造书完整掉落表（点击可查看大图）</p>
+<p>《仁王2》中武技与锻造书的掉落都是很重要的东西，那么锻造书都在什么任务中掉落呢？本文为大家带来完整的武技与锻造书掉落表，支持按名称、敌人、任务搜索筛选。</p>
+<h2>掉落表查询</h2>
+<p>下表汇总了游戏中全部武技书与锻造书的掉落来源，共 <strong>${DROP_TABLE_DATA.length}</strong> 条记录。可使用搜索框和筛选条件快速定位。</p>
+<div id="dropTableContainer"></div>
 <h2>使用说明</h2>
 <ul>
 <li><strong>武技书</strong>：使用后可解锁对应武器的武技，部分武技需要完成特定任务或击败特定敌人掉落。</li>
 <li><strong>锻造书</strong>：使用后可在锻造屋解锁对应武器/防具的锻造配方。</li>
-<li><strong>掉落机制</strong>：部分掉落品需要在特定难度（如强者之道、修罗之道）下才会掉落。</li>
-<li><strong>效率建议</strong>：推荐搭配"掉落率提升"词条与开运符，可显著提高刷取效率。</li>
+<li><strong>掉落机制</strong>：部分掉落品需要在特定难度（如强者之道、修罗之道）下才会掉落，表中"备注"列已标注。</li>
+<li><strong>效率建议</strong>：推荐搭配"道具掉落率"词条与木灵护符，可显著提高刷取效率。幸运值不影响锻造书和武技的掉落率。</li>
 </ul>
 <h2>刷取小贴士</h2>
 <ol>
-<li>优先完成主线任务解锁更高难度，高难度下掉落率更高。</li>
+<li>优先完成主线任务解锁更高难度，通关后堆满道具掉落率再来刷取效率最高。</li>
 <li>利用"血刀冢"系统可以重复挑战强力敌人，有概率掉落稀有武技书。</li>
 <li>部分锻造书可通过"常暗之间"的深层模式获得。</li>
 <li>联机模式下队友击杀的敌人掉落品也可以拾取。</li>
+<li>守护灵"丝切瘤"和木灵护符"猎人护符"可以提升道具掉落率。</li>
 </ol>
-<blockquote>注意：掉落表内容基于游戏1.27版本，后续DLC新增内容请以游戏内实际为准。</blockquote>
+<blockquote>注意：掉落表内容基于游戏本体（不含DLC），DLC新增内容请以游戏内实际为准。数据整理自NGA玩家社区纯文字版。</blockquote>
 `,
     source: 'https://wap.gamersky.com/gl/Content-1311962.html',
     sourceName: '游民星空'
@@ -1786,7 +2112,7 @@ function renderGuideDetail(id) {
             </div>
             <div class="toc-list" id="tocList">
               <div class="toc-item active" onclick="scrollToSection('top')">攻略概述</div>
-              <div class="toc-item" onclick="scrollToSection('h2-0')">掉落表总览</div>
+              <div class="toc-item" onclick="scrollToSection('h2-0')">掉落表查询</div>
               <div class="toc-item" onclick="scrollToSection('h2-1')">使用说明</div>
               <div class="toc-item" onclick="scrollToSection('h2-2')">刷取小贴士</div>
             </div>
@@ -1795,6 +2121,152 @@ function renderGuideDetail(id) {
       </div>
     </div>
   `;
+
+  // 初始化掉落表搜索
+  if (guide.id === 'skill-drop-table') {
+    setTimeout(initDropTable, 50);
+  }
+}
+
+// ===== Drop Table Search & Filter =====
+let dropTableState = {
+  search: '',
+  typeFilter: 'all',
+  catFilter: 'all',
+  sortKey: 'category',
+  sortDir: 'asc'
+};
+
+function initDropTable() {
+  const container = document.getElementById('dropTableContainer');
+  if (!container) return;
+
+  const categories = ['all', ...new Set(DROP_TABLE_DATA.map(d => d.category))];
+  const typeFilters = [
+    { key: 'all', label: '全部' },
+    { key: '武技', label: '武技' },
+    { key: '锻造书', label: '锻造书' }
+  ];
+
+  container.innerHTML = `
+    <div class="drop-table-toolbar">
+      <div class="drop-table-search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" id="dropSearchInput" placeholder="搜索名称、敌人、任务..." autocomplete="off">
+      </div>
+      <div class="drop-table-filters" id="dropTypeFilters">
+        ${typeFilters.map(f => `<button class="drop-table-filter ${f.key==='all'?'active':''}" data-type="${f.key}">${f.label}</button>`).join('')}
+      </div>
+      <div class="drop-table-stats" id="dropStats">共 ${DROP_TABLE_DATA.length} 条</div>
+    </div>
+    <div class="drop-table-toolbar" style="padding-top:0;">
+      <div class="drop-table-filters" id="dropCatFilters" style="width:100%;">
+        ${categories.map(c => `<button class="drop-table-filter ${c==='all'?'active':''}" data-cat="${c}">${c==='all'?'全部类别':c}</button>`).join('')}
+      </div>
+    </div>
+    <div class="drop-table-wrapper">
+      <table class="drop-table" id="dropTable">
+        <thead>
+          <tr>
+            <th data-sort="name">名称<span class="sort-icon">▲▼</span></th>
+            <th data-sort="type">类型<span class="sort-icon">▲▼</span></th>
+            <th data-sort="category">类别<span class="sort-icon">▲▼</span></th>
+            <th data-sort="enemy">掉落敌人<span class="sort-icon">▲▼</span></th>
+            <th data-sort="mission">掉落任务<span class="sort-icon">▲▼</span></th>
+            <th data-sort="chapter">章节<span class="sort-icon">▲▼</span></th>
+            <th>备注</th>
+          </tr>
+        </thead>
+        <tbody id="dropTableBody"></tbody>
+      </table>
+    </div>
+  `;
+
+  document.getElementById('dropSearchInput').addEventListener('input', function() {
+    dropTableState.search = this.value.trim().toLowerCase();
+    renderDropTable();
+  });
+
+  document.querySelectorAll('#dropTypeFilters .drop-table-filter').forEach(btn => {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('#dropTypeFilters .drop-table-filter').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      dropTableState.typeFilter = this.dataset.type;
+      renderDropTable();
+    });
+  });
+
+  document.querySelectorAll('#dropCatFilters .drop-table-filter').forEach(btn => {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('#dropCatFilters .drop-table-filter').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      dropTableState.catFilter = this.dataset.cat;
+      renderDropTable();
+    });
+  });
+
+  document.querySelectorAll('#dropTable th[data-sort]').forEach(th => {
+    th.addEventListener('click', function() {
+      const key = this.dataset.sort;
+      if (dropTableState.sortKey === key) {
+        dropTableState.sortDir = dropTableState.sortDir === 'asc' ? 'desc' : 'asc';
+      } else {
+        dropTableState.sortKey = key;
+        dropTableState.sortDir = 'asc';
+      }
+      document.querySelectorAll('#dropTable th').forEach(t => t.classList.remove('sort-asc', 'sort-desc'));
+      this.classList.add(dropTableState.sortDir === 'asc' ? 'sort-asc' : 'sort-desc');
+      renderDropTable();
+    });
+  });
+
+  renderDropTable();
+}
+
+function renderDropTable() {
+  const { search, typeFilter, catFilter, sortKey, sortDir } = dropTableState;
+  let data = DROP_TABLE_DATA.filter(item => {
+    if (typeFilter !== 'all' && item.type !== typeFilter) return false;
+    if (catFilter !== 'all' && item.category !== catFilter) return false;
+    if (search) {
+      const haystack = (item.name + item.enemy + item.mission + item.chapter + item.note).toLowerCase();
+      if (!haystack.includes(search)) return false;
+    }
+    return true;
+  });
+
+  data.sort((a, b) => {
+    let va = a[sortKey] || '';
+    let vb = b[sortKey] || '';
+    if (sortKey === 'type') {
+      va = va === '武技' ? 0 : 1;
+      vb = vb === '武技' ? 0 : 1;
+    }
+    if (va < vb) return sortDir === 'asc' ? -1 : 1;
+    if (va > vb) return sortDir === 'asc' ? 1 : -1;
+    return 0;
+  });
+
+  const tbody = document.getElementById('dropTableBody');
+  const stats = document.getElementById('dropStats');
+  if (stats) stats.textContent = `显示 ${data.length} / ${DROP_TABLE_DATA.length} 条`;
+
+  if (data.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="7" class="drop-table-empty">未找到匹配的记录，请调整搜索条件</td></tr>';
+    return;
+  }
+
+  tbody.innerHTML = data.map(item => `
+    <tr>
+      <td><strong>${item.name}</strong></td>
+      <td><span class="tag-type ${item.type === '武技' ? 'skill' : 'forge'}">${item.type}</span></td>
+      <td><span class="tag-cat">${item.category}</span></td>
+      <td>${item.enemy}</td>
+      <td>${item.mission}</td>
+      <td>${item.chapter}</td>
+      <td class="note-cell">${item.note || '-'}</td>
+    </tr>
+  `).join('');
 }
 
 function scrollToSection(id) {
